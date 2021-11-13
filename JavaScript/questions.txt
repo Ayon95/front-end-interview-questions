@@ -25,3 +25,83 @@ are seemingly moved to the top of the current scope
 - it starts from the beginning of the scope until the line of code where a variable is initialized with a value
 - accessing let and const variables in the TDZ will result in an error
 - var variables are undefined in the TDZ
+
+--------- Strict equality (===) vs Loose equality (==) ---------
+
+Strict equality
+- strict equality operator compares both value and type
+- no type coercion is done
+- two operands are equal only if they have the same type and value
+
+Loose equality
+- loose equality operator only compares values
+- if two operands have different types, then JS will try to convert them to the same type and then compare them
+
+--------- What is implicit type coercion? ----------
+
+- Implicit type coercion refers to how JS automatically converts a value from one data type to another in certain cases
+
+String coercion
+- when a number is added to a string, the number gets converted to a string
+
+Number coercion
+- when a string is subtracted from a number, the string gets converted to a number
+- also when strings are compared (<,>), JS tries to convert them to numbers
+
+Boolean coercion
+- Boolean coercion takes place when using logical operators, ternary operators, if statements and loop checks
+- truthy values get converted to true
+- falsy values get converted to false
+
+Equality coercion
+- JS will try to convert operands to the same type when using loose-equality operator (==)
+
+-------- Pass by value vs Pass by reference ---------
+
+Pass by value
+- when primitive data types are passed to a variable, they are passed by value
+- when a primitive data type is passed to a variable, a new memory space is allocated for the value
+
+Pass by reference
+- non-primitive data types are passed by reference
+- the reference to the object is directly passed to the new variable
+- no new memory spot is allocated
+
+-------- Higher order functions ---------
+
+- these are functions that take other functions as arguments and/or return other functions
+- this is possible because functions are first-class citizens in JS
+    - functions can be stored in variables, passed to other functions, or returned from other functions
+e.g. map, filter, reduce, etc.
+
+---------- What is 'this' keyword? ---------
+
+- the 'this' keyword refers to the object that the function belongs to
+- it points to the object that the code is operating in
+- its value depends on how the function is called and it is assigned when the function is called
+
+- Arrow functions do not bind their own this, instead, they inherit the one from the parent scope, which is called "lexical scoping"
+
+--------- Scope and Scope chain -----------
+
+Scope
+- the region in which a variable or function is declared and can be accessed
+
+Global scope
+- the top-level region in the code; the global namespace
+- outside of any function or block
+
+Function (local) scope
+- the region inside of a function
+- var variables are function-scoped
+
+Block scope
+- the region inside of any block {}
+- let and const variables are block-scoped
+- functions in ES6 (with strict mode) are also block-scoped
+
+Scope chain and variable lookup
+- all the scopes form a scope chain
+- the global scope is at the top of the scope chain
+- JS uses the scope chain to look up a variable when it is not present in a scope
+- an outer scope cannot access a variable in an inner scope
