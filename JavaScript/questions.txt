@@ -105,3 +105,33 @@ Scope chain and variable lookup
 - the global scope is at the top of the scope chain
 - JS uses the scope chain to look up a variable when it is not present in a scope
 - an outer scope cannot access a variable in an inner scope
+
+---------- What is a Closure? ----------
+
+- a closure is a function together with a reference to variables defined in the function's parent scope
+- a function remembers the variables that are declared in its outer scope even after the parent function has finished being executed
+- a closure gives you access to an outer function’s scope from an inner function
+- it keeps a reference to its outer scope
+- whenever you define a function, it forms a closure
+
+-------- Explain prototypal inheritance ----------
+
+- inheritance based on prototypes
+- everything is an object in JS and all objects inherit properties and methods from their prototype
+- when an instance of an object is created, a link to its prototype is established
+- the Object prototype is at the top of the prototype chain
+- every object in JS inherits properties from the Object prototype
+- A prototype is a blueprint of an object
+- an object is linked to its prototype via its .__proto__ property
+- e.g. a Date object inherits properties from the Date prototype
+
+Looking up in the prototype chain
+- If the property or method is not present on the current object, JS will always try to look in its prototype
+- if it still does not exist there, it looks inside the prototype's prototype and so on.
+
+Benefits of prototypal inheritance
+- reusability
+    - many objects can inherit and use properties defined in a prototype
+- memory efficiency
+    - instead of defining the same properties for each object, the properties have to be defined once only in the prototype
+        - this avoids creating numerous copies of the same properties
