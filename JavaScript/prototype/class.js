@@ -18,6 +18,7 @@ class Human {
 
 class Student extends Human {
   constructor(name, age, major) {
+    // calling the parent constructor (Human constructor), binding its 'this' to a Student object, and passing into Human constructor name and age
     super(name, age);
     this.major = major;
   }
