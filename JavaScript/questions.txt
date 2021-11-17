@@ -135,3 +135,23 @@ Benefits of prototypal inheritance
 - memory efficiency
     - instead of defining the same properties for each object, the properties have to be defined once only in the prototype
         - this avoids creating numerous copies of the same properties
+
+--------- Promise ---------
+
+- promises are used to handle asynchronous logic
+- a promise represents the eventual completion of an asynchronous task
+- it is like a container that will eventually contain the outcome of an async task
+- a promise lifecycle has two stages - pending, settled
+- a settled promise can be either fulfilled or rejected
+
+Pending state
+- initially the promise is in pending state
+- this is when the async task is running in the background
+
+Fulfilled state
+- a promise becomes fulfilled when the async task finishes successfully
+- the promise is said to have a fulfillment value
+
+Rejected state
+- a promise is rejected when the async task fails
+- the promise is said to be rejected with a rejection reason (the error that occurred)
