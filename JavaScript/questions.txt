@@ -155,3 +155,17 @@ Fulfilled state
 Rejected state
 - a promise is rejected when the async task fails
 - the promise is said to be rejected with a rejection reason (the error that occurred)
+
+--------- Async/await ---------
+
+- async/await syntax allows us to write async logic in a much more elegant way than promise .then()
+- it is still promise-based; syntactic sugar
+- it allows us to write async logic in a synchronous way
+- execution within the async function stops when an await expression is reached
+- execution continues when the await expression returns a value
+- you have to specify the 'async' keyword to declare an async function or use an async function expression 
+
+await
+- the await expression consists of the 'await' keyword and an async function, e.g. fetch
+- the await expression returns the resolved value of the promise returned by the async function
+- if the async function returns a rejected promise, then the await expression throws the error
