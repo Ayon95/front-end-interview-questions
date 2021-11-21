@@ -18,5 +18,7 @@
             - any border or padding you add to it will be added to 100px
             - so the total width of the element will be more than 100px
     - if you set it to border-box, then any width and height you apply to an element will define the total area of an element
+        - this allows you to use the alternative box model
         - it takes any border and padding into account
+        - the border box will be used as the defined area
         - e.g. if you set the width of an element to 100px, then that will include any border and padding you add to it
