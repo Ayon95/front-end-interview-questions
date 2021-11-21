@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Box Model</title>
+    <style>
+      body {
+      }
+      p {
+        width: 500px;
+        border: 2px solid blueviolet;
+        padding: 10px;
+      }
+
+      .border-box {
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>box-sizing: content-box vs border-box</h1>
+    <p>
+      This paragraph has box-sizing set to content-box. Its width is set to
+      500px. It has a border and padding of 2px and 10px around it respectively.
+      The element's total width is 524px.
+    </p>
+    <p class="border-box">
+      This paragraph has box-sizing set to border-box. Its width is set to
+      500px. It has a border and padding of 2px and 10px around it respectively.
+      The element's total width is 500px.
+    </p>
+  </body>
+</html>
