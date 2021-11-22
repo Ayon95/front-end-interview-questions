@@ -22,3 +22,38 @@
         - it takes any border and padding into account
         - the border box will be used as the defined area
         - e.g. if you set the width of an element to 100px, then that will include any border and padding you add to it
+
+--------- Block vs inline vs inline-block display --------
+
+display
+- specifies the display behavior of an element
+- can be block, inline, or inline-block
+
+block display
+- a block element occupies the entire width of its parent
+- causes a line break at the end
+    - block elements are stacked on top of each other
+- height and width are respected
+- padding, border, and margin will push away surrounding elements
+- flex, grid, list-item, and table display also produce block-level boxes
+- e.g. h1, p, div
+
+inline display
+- occupies only the space that is needed by the element's content
+- does not cause a line break
+    - appear beside each other in the same line
+- height and width are not applied
+- vertical padding, border, and margin will not push away surrounding elements
+- transforms don't work
+- e.g. a, span, em, strong, before and after pseudo-elements have inline display by default
+
+inline-block display
+- it is like an inline box that adheres to the box model
+- occupies only the space that is needed by the element's content
+- does not cause a line break
+- height and width are applied
+- padding, border, and margin will push away surrounding elements
+- can be transformed
+- img elements are treated like inline-block elements
+    - they flow inline like text, but they also have a width and height like block elements
+- e.g. img, button
