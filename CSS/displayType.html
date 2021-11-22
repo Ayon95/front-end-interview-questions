@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display type</title>
+    <style>
+      body {
+        padding: 0 10px;
+      }
+
+      p {
+        border: 1px solid red;
+        padding: 10px;
+        border-radius: 4px;
+      }
+
+      span {
+        font-weight: bold;
+        /* notice the differences in padding and margin between inline and inline-block elements */
+        padding: 10px;
+        margin: 10px;
+        /* these will only work for inline-block elements */
+        width: 60px;
+        height: 50px;
+        transition: 0.3s;
+      }
+
+      span:hover {
+        /* transforms do not work for inline elements */
+        transform: scale(1.2);
+      }
+
+      .inline-element {
+        border: 1px solid blue;
+      }
+
+      .inline-block-element {
+        border: 1px solid green;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Block vs inline vs inline-block display</h1>
+
+    <p class="block-element">
+      Paragraphs are block elements. Block elements occupy the entire horizontal
+      space of their parent container.
+    </p>
+    <p class="block-element">
+      Paragraphs are block elements. Block elements occupy the entire horizontal
+      space of their parent container.
+    </p>
+
+    <p class="block-element">
+      This paragraph contains some text wrapped in span tag. These span elements
+      have <span class="inline-element">inline</span
+      ><span class="inline-element">display</span>. Inline elements do not
+      occupy the entire horizontal space of their parent container. They do not
+      cause a line break at the end. They are placed one after another
+      horizontally. As you can see, vertical padding or margins will not push
+      away surrounding elements or content. Furthermore, you cannot set an
+      explicit width or height on an inline element. Transforms also do not work
+      on inline elements. <span class="inline-element">Hover over me!</span>
+    </p>
+
+    <p class="block-element">
+      The span elements in this paragraph have been given
+      <span class="inline-block-element">inline</span
+      ><span class="inline-block-element">block</span
+      ><span class="inline-block-element">display</span>. Inline block elements
+      are a combination of block and inline elements. Like inline elements, they
+      do not occupy the full width of their parent container. However, like
+      block elements, vertical margins and padding will push away surrounding
+      elements. You can also set explicit width and height. You can also apply
+      transforms. <span class="inline-block-element">Hover over me!</span>
+    </p>
+  </body>
+</html>
