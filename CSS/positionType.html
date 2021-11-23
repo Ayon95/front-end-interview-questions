@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Position</title>
+  </head>
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      padding: 20px;
+      height: 800px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      border: 2px solid red;
+      padding: 10px;
+      margin-bottom: 30px;
+    }
+
+    div {
+      position: relative;
+      border: 2px solid blue;
+      margin-bottom: 50px;
+    }
+    .relative {
+      position: relative;
+      left: 50px;
+      top: 10px;
+    }
+
+    .absolute {
+      position: absolute;
+      top: 0;
+      left: 30px;
+    }
+
+    .fixed {
+      position: fixed;
+      top: 0;
+      right: 50px;
+    }
+  </style>
+  <body>
+    <h1>Static vs Relative vs Absolute vs Fixed positioning</h1>
+    <p>I have static positioning which is the default or normal positioning.</p>
+    <p class="relative">
+      I am relatively positioned. I am offset from my normal position.
+    </p>
+    <div>
+      <p class="absolute">
+        I am absolutely positioned. I am the child of a relatively-positioned
+        element.
+      </p>
+    </div>
+    <p class="fixed">
+      I have fixed positioning. I am positioned relative to the viewport.
+    </p>
+  </body>
+</html>
