@@ -86,3 +86,47 @@ Fixed positioning
 - the element remains fixed in one position
 - element is positioned relative to the initial containing block
 unless one of its ancestors has a transform, filter, or perspective set to something other than none
+
+--------- What is a selector? ----------
+
+- a CSS selector is the part of a CSS rule that targets an HTML element for styling
+based on various things like class, id, attribute, element type, etc.
+- the selector selects an element to which the corresponding styles are applied
+
+Types of selectors
+- type selector
+- class selector
+- id selector
+- attribute selector
+- descendent combinator
+- child combinator (>)
+- general sibling combinator (~)
+- adjacent sibling combinator (+)
+
+Examples:
+
+// this is a type selector; it selects every p element on the page
+p {
+    color: blue;
+}
+
+// this is a class selector; it selects the element with the class 'card'
+.card {
+    padding: 10px;
+}
+
+// this is an id selector; selects an element with the id 'item-1'
+#item-1 {
+    margin: 10px;
+}
+
+// using a descendent combinator; selects any p element which is a descendent of the element having 'card' class
+// here p doesn't necessarily have to be a direct child of 'card'
+.card p {
+    font-size: 20px;
+}
+
+// using a child combinator here; this selects any p element which is a direct child of the element having 'card' class
+.card > p {
+    font-size: 20px;
+}
