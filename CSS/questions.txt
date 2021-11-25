@@ -130,3 +130,35 @@ p {
 .card > p {
     font-size: 20px;
 }
+
+---------- Pseudo-classes and pseudo-elements ---------
+
+Pseudo-class
+- a pseudo-class allows us to select an element in a specific state, e.g. hover, focus, etc.
+
+Some pseudo-classes
+- :active
+- :hover
+- :focus
+- :link
+- :visited
+- :disabled
+
+Pseudo-elements
+- a pseudo-element allows us to target and style a specific part of the selected element
+
+Some pseudo-elements
+- ::before
+- ::after
+- ::placeholder
+- ::first-line
+- ::selection
+- ::marker
+
+::before
+- this adds a pseudo-element as the first child of the selected element
+
+::after
+- adds a pseudo-element as the last child of the selected element
+
+- ::before and ::after are often used to add cosmetic or decorative content to an element by specifying the 'content' property
