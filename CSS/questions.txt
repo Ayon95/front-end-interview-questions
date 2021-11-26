@@ -161,4 +161,6 @@ Some pseudo-elements
 ::after
 - adds a pseudo-element as the last child of the selected element
 
+- ::before and ::after will not work on images because an image itself is the content
+- ::before and ::after pseudo-elements are inline by default
 - ::before and ::after are often used to add cosmetic or decorative content to an element by specifying the 'content' property

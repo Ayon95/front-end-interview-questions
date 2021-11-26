@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pseudo-elements</title>
+  </head>
+  <style>
+    h1::before {
+      content: "";
+      display: block;
+      width: 25px;
+      height: 6px;
+      border-radius: 4px;
+      background-color: blueviolet;
+    }
+
+    p::before {
+      content: "before";
+      background-color: blueviolet;
+      color: #fff;
+      padding: 10px;
+    }
+
+    p::after {
+      content: "after";
+      background-color: blueviolet;
+      color: #fff;
+      padding: 10px;
+    }
+
+    blockquote {
+      font-style: italic;
+      font-size: 20px;
+    }
+
+    blockquote::before {
+      content: open-quote;
+      font-size: 30px;
+      color: blueviolet;
+    }
+
+    blockquote::after {
+      content: close-quote;
+      font-size: 30px;
+      color: blueviolet;
+    }
+
+    li::marker {
+      color: blueviolet;
+      font-size: 22px;
+    }
+  </style>
+  <body>
+    <h1>Pseudo-elements</h1>
+    <p>
+      Pseudo-elements allow us to target and style specific parts of an element
+      or add some content before or after an element.
+    </p>
+    <blockquote>Some quote here.</blockquote>
+    <ul>
+      <h2>Football clubs</h2>
+      <li>Chelsea</li>
+      <li>Liverpool</li>
+      <li>Manchester City</li>
+      <li>Manchester United</li>
+    </ul>
+  </body>
+</html>
