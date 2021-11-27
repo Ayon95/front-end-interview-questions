@@ -164,3 +164,24 @@ Some pseudo-elements
 - ::before and ::after will not work on images because an image itself is the content
 - ::before and ::after pseudo-elements are inline by default
 - ::before and ::after are often used to add cosmetic or decorative content to an element by specifying the 'content' property
+
+---------- CSS units ---------
+
+Absolute unit
+- px is an absolute unit
+- it is a fixed unit that is not relative to anything
+
+Relative units
+- rem, em, vh, vw, and ch are some relative units
+- they are relative to something
+
+rem
+- the rem unit is relative to the root font size
+- the root font size is the document's font size which is the browser default of 16px
+- so, 2rem is equal 2 * 16px = 32px
+
+em
+- the em unit when used with non-distance related properties is relative to the parent's font size
+- e.g. font-size of 3em is equal to 3 * 24 = 72px where the parent's font size is 24px
+- when it is used with distance-related properties, it is relative to the element's own font size
+- e.g. padding of 2em is equal to 2 * 24 = 48px where the element's font-size is 24px
