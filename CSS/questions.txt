@@ -174,6 +174,7 @@ Absolute unit
 Relative units
 - rem, em, vh, vw, and ch are some relative units
 - they are relative to something
+- relative units are useful for implementing responsive layouts and responsive fonts
 
 rem
 - the rem unit is relative to the root font size
@@ -185,3 +186,17 @@ em
 - e.g. font-size of 3em is equal to 3 * 24 = 72px where the parent's font size is 24px
 - when it is used with distance-related properties, it is relative to the element's own font size
 - e.g. padding of 2em is equal to 2 * 24 = 48px where the element's font-size is 24px
+
+vh and vw
+- vh and vw are relative to viewport height and width respectively
+- e.g. 20vw is 20% of viewport width
+
+ch
+- it is relative to the width of 0 of the font family that is used
+- e.g. max-width: 50ch; this means roughly 50 characters wide
+
+Percentage unit
+- distance-related % values (width, height, padding, margin, etc.) are calculated relative to the parent's computed width
+e.g. a p element has a padding of 10%; its parent's width is 200px; the p element's padding will be 0.1 * 200 = 20px
+- non-distance % values (font-size, line-height, etc.) of an element are converted in relation to the parent's computed font-size
+e.g. a p element has a font-size of 150%; its parent has a font-size of 16px; the p element's font size will be 1.5 * 16 = 24px

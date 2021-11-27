@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Units</title>
+  </head>
+  <style>
+    /* changing the root font size from 16px to 16 * 0.625 = 10px */
+    html {
+      font-size: 62.5%;
+    }
+
+    body {
+      font-size: 1.6rem;
+    }
+
+    p {
+      padding: 1.6rem;
+      border-radius: 4px;
+    }
+
+    h1 {
+      /* - The font size cannot be any smaller than 2.5rem = 25px and cannot be greater than 7rem = 70px
+         - In between 25px and 70px, the font size will be 3vw = 3% of the viewport width
+         - Try resizing the browser window to see how the font size changes
+         - We can implement responsive font size in this way
+      */
+      font-size: clamp(2.5rem, 3vw, 7rem);
+    }
+    .para-1 {
+      /* 2.5 * 10px = 25px */
+      font-size: 2.5rem;
+      background-color: burlywood;
+    }
+
+    .para-2 {
+      /* the maximum width of this paragraph will be roughly 60 characters wide */
+      max-width: 60ch;
+      background-color: rgb(164, 194, 252);
+    }
+
+    .btn {
+      font-size: 2rem;
+      /* top and bottom padding will be 0.7 * 20px = 14px
+        left and right padding will be 1 * 20px = 20px
+      */
+      padding: 0.7em 1em;
+      border-radius: 4px;
+      border: none;
+      background-color: blueviolet;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+  <body>
+    <h1>CSS units</h1>
+    <p class="para-1">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste fugit
+      temporibus molestias quibusdam voluptatibus odio velit maxime, ea
+      necessitatibus deleniti.
+    </p>
+    <p class="para-2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero perspiciatis
+      illo accusamus quisquam qui illum nam dolores reprehenderit quas ratione
+      unde assumenda iusto minus debitis ea, eius voluptatibus cum cupiditate.
+    </p>
+    <button class="btn" type="button">Button</button>
+  </body>
+</html>
