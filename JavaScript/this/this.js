@@ -39,3 +39,10 @@ arrowFunction();
 // the parent scope of brake is the global scope
 // so 'this' will point to the global object (not car!)
 car.brake();
+
+const title = document.querySelector(".title");
+// 'this' keyword in an event handler points to the HTML element on which the event occurred
+// if the event handler is an arrow function, then 'this' will point to the global object (window) which is the parent scope here
+title.addEventListener("click", function () {
+  console.log(this);
+});
