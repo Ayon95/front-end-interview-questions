@@ -1,0 +1,71 @@
+----------- What is unidirectional data flow in React? ---------
+
+- state is passed to the view and child components
+- the view is rendered based on the state that it receives
+- the view is the visual representation of the application state
+- actions in the view, e.g. button click, trigger state changes
+- state changes only when actions happen in the view
+    - the view can never directly update the state
+- state gets updated and the updated state is passed to the view and child components
+
+state -> view -> actions -> state
+
+- data in React can flow in one direction, from parent to child
+- props can only be passed down from parent to child components
+
+- when a component's state is updated, only its children are affected by the change
+    - React re-renders the component and all its children when that component's state or props change
+
+----------- Props vs state -----------
+
+- state is data that a component owns
+    - the data is defined locally within the component
+    - the component also owns function to update that state
+- props are pieces of data that a component receives from its parent
+    - props are passed down from a parent to its children
+- a component cannot directly change the value of a prop
+    - the only way is to use the state setter function defined in the parent
+
+--------- What does it mean to lift state up? -----------
+
+- it is a way to share state between sibling components
+- sometimes multiple components at the same level in the component tree will require the same data
+- the only way to pass that data to those components is to lift that data up to their common parent component
+- this will also ensure that the child components remain in sync with the data that they rely on
+    - whenever that data will change, the child components will be re-rendered with the updated data
+- data cannot move up or sideways; it can only move down from parent to children
+
+--------- Controlled vs uncontrolled components ---------
+
+- they render form control elements, e.g. input, select, textarea
+- in a controlled component, the form data lives in the component as its state and is managed by the component
+- in an uncontrolled component, the form data is stored and managed by the form control elements internally
+    - the uncontrolled component can access form data via refs
+
+Controlled component
+- in a controlled input, the input value is bound to the component's state
+- the component controls the input value by passing into it the state value via props
+- an onChange event handler is used to notify the component of an input change, and the component updates its state
+    - the input receives the updated value via the 'value' prop
+- the input will show whatever the value is for the state
+
+Uncontrolled component
+- an uncontrolled input is not bound to the component's state
+- it stores and manages its own state internally
+- the value of that input can be obtained by using a ref
+    - the ref is used to access the underlying input DOM node and get its value
+
+------------ What is a ref? -----------
+
+- a ref is a way to access underlying DOM nodes or React elements
+- every JSX element has a ref prop into which you can pass a ref
+- this way, you can store a reference to that DOM node or React element
+- it provides an escape hatch to reach out to the DOM and manipulate it directly
+    - in React, you normally don't manipulate the DOM directly
+    - you tell React what changes need to be made, React creates a virtual DOM accordingly, and then ReactDOM
+    reaches out to the actual DOM and applies those changes
+    - with refs, you are bypassing this process and getting a hold of the actual DOM
+
+Use cases of refs
+- setting focus on an input programmatically
+- triggering certain animations
