@@ -79,7 +79,7 @@ e.g. map, filter, reduce, etc.
 - the 'this' keyword refers to the object that the function belongs to
 - it points to the object that the code is operating in
 - its value depends on how the function is called and it is assigned when the function is called
-- 'this' keyword in an event handler points to the HTML element on which the event occurred
+- 'this' keyword in an event handler points to the HTML element to which the event handler is attached (event.currentTarget)
 
 - Arrow functions do not bind their own this, instead, they inherit the one from the parent scope, which is called "lexical scoping"
 

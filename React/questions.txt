@@ -69,3 +69,19 @@ Uncontrolled component
 Use cases of refs
 - setting focus on an input programmatically
 - triggering certain animations
+
+----------- Keys and their importance in rendering list items --------
+
+- a key is a special prop that React uses to identify and keep track of individual list items
+- a key value needs to be stable and unique
+- a key acts as a unique identifier for a list item
+- with the help of keys, React can keep track of any changes that may occur in a list
+- Keys help React identify exactly which items have changed, are added, removed, or rearranged
+    - this allows React to efficiently update and re-render the list to the DOM
+
+- do not use the index as the value of the key prop
+    - the index is not specific to an item; it only indicates the current position of the item in the list
+    - indices will change if you remove an item or rearrange items in the list
+    - as a result, keys of all the items will change, and React will re-render them even though their content didn't change at all
+    - this is not efficient because we're having to recreate some DOM elements unnecessarily
+    - If a component’s key changes, the component will be destroyed and re-created
