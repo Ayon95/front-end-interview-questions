@@ -85,3 +85,128 @@ Use cases of refs
     - as a result, keys of all the items will change, and React will re-render them even though their content didn't change at all
     - this is not efficient because we're having to recreate some DOM elements unnecessarily
     - If a component’s key changes, the component will be destroyed and re-created
+
+---------- What is prop-drilling? -----------
+
+- prop-drilling refers to the action of passing props from a parent component
+to a deeply-nested component through each intermediate level of the component tree
+- intermediate components may not need the prop at all, but the prop still needs to go through them
+- when passing props, you cannot skip a level
+- props can only be passed down from parent to its immediate child, and then that child can pass the prop down to its immediate child
+
+------------ What is context? ----------
+
+- context is a way to pass data to a tree of components without having to pass props through each level of the component tree
+- context provides us with an easy way to store data that is needed by a tree of components in a central place
+- a deeply-nested component can access the data without having to do prop-drilling
+
+Provider
+- the Provider component receives the value of a context and provides it to the components that subscribe to it
+
+useContext
+- subscribed components can use this hook to access the value of the context
+
+- every subscribed component gets re-rendered when the value of the context changes, and the components receive the updated value
+
+When should you use it?
+- primarily used when some data needs to be accessed by many components at different nesting levels
+- when you have data that is required by components in different parts of the component tree
+- it is designed to share data that is considered global for a tree of components
+- use it when you have to pass data to deeply-nested components
+
+---------- What is a higher order component (HOC)? ----------
+
+- A higher-order component (HOC) is an advanced technique or pattern in React for reusing component logic
+- a higher-order component is a function that takes a component as an argument and returns a new component
+- it takes a component and returns a more enhanced version of that component (with added functionality)
+
+- a HOC is useful when you need to use the same logic or functionality in multiple components
+- it allows us to share common functionality among different components without repeating the same logic
+
+- a HOC should be a pure function
+
+---------- Render prop ---------
+
+- - it is a pattern or technique in React for sharing common logic in multiple components using a prop that takes a function
+A component with a render prop takes a function that returns a React element
+and calls it instead of implementing its own render logic.
+- the render prop's function allows a component to dynamically render something based on what that function returns
+    - this way, the component won't have to render something specific all the time
+    - this makes the component reusable
+
+- it is useful for sharing state or behavior that one component encapsulates with other components that need it
+- it allows us to reuse the same logic in multiple components without repeating it
+
+--------- What are hooks? --------
+
+- hooks are special functions that allow us to 'hook' into certain features in React, e.g. adding state, performing side-effects
+
+Why are hooks useful?
+- hooks allow us to use state and other React features like lifecycle methods without using class components
+- you can also define your own custom hooks and encapsulate some common logic or behavior into it that you can share across multiple components
+    - this provides a more readable and elegant alternative to HOCs and render props
+    that can lead to wrapper hell (using a lot of wrapper or container components)
+    - with hooks, you don't need to create a separate wrapper that renders the component that you want to enhance
+
+Rules of hooks
+- hooks must start with 'use'
+- you can only call hooks at the top-level of a component or a custom hook
+
+--------- useEffect hook ----------
+
+- the useEffect hook is used for performing side-effects in a React component
+- it can behave as componentDidMount, componentDidUpdate, and componentWillUnmount
+- it takes a callback that contains the logic for performing a side-effect
+- useEffect will call that callback every time the component renders (default behavior)
+- useEffect also takes a dependency array as its second argument
+    - the callback will run every time one of the dependencies changes (like componentDidMount)
+    - if you specify an empty dependency array, then the callback will only run
+    once after the component renders for the first time (like componentDidMount)
+- you can return a function from the useEffect callback
+    - this function acts as a cleanup function that cleans up the effect
+    - the cleanup function runs just before the component is removed from the DOM (like componentWillUnmount)
+    - the cleanup function also runs before every re-render to clean up any previous effects
+
+--------- React.memo() ---------
+
+- it is a HOC that memoizes the component it receives
+- the memoized component will only get re-rendered if one of its props changes
+- if none of the props change, then React will skip re-rendering that component and simply use the memoized rendered result
+- note that if the memoized component has a useState, useReducer or useContext Hook in its implementation,
+it will still re-render when state or context changes.
+
+- it behaves like shouldComponentUpdate lifecycle method
+
+When to use it
+- it may be useful when you have a large section of the component tree that renders the same thing with the same props provided
+    - in that case, memoizing the top-level component in that branch can avoid a lot of unnecessary re-renders and give a performance boost
+- usually for small apps with small component trees, this is not needed
+- if your component has state or its props change frequently, then there's no point in memoizing that component
+
+-------- useCallback hook ---------
+
+- the useCallback hook receives a callback and a dependency array, and returns a memoized version of that callback
+- the callback will only be re-created if one of the dependencies changes
+    - the function will never be re-created if you specify an empty dependency array
+- otherwise, react will use the memoized version of the callback
+
+- normally, functions get recreated on every re-render
+- so each time, it's a new function
+
+- functions in JS are objects, and objects are reference types
+- two objects are different entities even if they look exactly the same
+
+When to use it
+- when you have to pass callbacks down to memoized child components (via React.memo) as props
+- when you have to specify a function as a dependency in other hooks, e.g. useEffect
+
+---------- useMemo hook ---------
+
+- it receives a callback and a dependency array, and memoizes the return value of that callback
+- it will call the callback and recompute the return value only when one of the dependencies changes
+- an empty dependency array tells React that the value will never have to be recomputed
+- in the dependency array, you would normally specify data that is required for the calculation
+
+When to use it
+- when you need to avoid performing unnecessary expensive calculations on every render
+- if the cost of performing some calculation outweighs the cost of memoization
