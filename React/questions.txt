@@ -210,3 +210,15 @@ When to use it
 When to use it
 - when you need to avoid performing unnecessary expensive calculations on every render
 - if the cost of performing some calculation outweighs the cost of memoization
+
+----------- virtual DOM -----------
+
+- it is a tree of React elements
+- a representation of the actual DOM that is stored in memory
+- the virtual DOM is simply a JS-object representation of what you want in the actual DOM
+- whenever the state, props, or context of a component changes, React re-renders that component and constructs an updated virtual DOM
+    - reconciliation is the process by which react detects changes to the UI or state and updates the virtual DOM
+- the virtual DOM is always kept in sync with the actual DOM
+- React compares the updated virtual DOM with the old virtual DOM and detects the changes that occurred
+    - React uses its internal diffing algorithm to calculate differences between the two trees of React elements
+- React informs ReactDOM of these changes and then ReactDOM updates the actual DOM accordingly
