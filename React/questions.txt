@@ -35,6 +35,16 @@ state -> view -> actions -> state
     - whenever that data will change, the child components will be re-rendered with the updated data
 - data cannot move up or sideways; it can only move down from parent to children
 
+---------- What is conditional rendering? ------------
+
+- Conditional rendering refers to rendering a component or a React element when a certain condition is met
+- for example, we can choose to render a loading spinner only in loading state (when data is being fetched from an API)
+
+There are various ways we can do conditional rendering
+- by using if-statements
+- by using ternary operator
+- by using short-circuit evaluation with logical AND operator (&&)
+
 --------- Controlled vs uncontrolled components ---------
 
 - they render form control elements, e.g. input, select, textarea
