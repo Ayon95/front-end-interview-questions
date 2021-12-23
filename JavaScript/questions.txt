@@ -170,3 +170,30 @@ await
 - the await expression consists of the 'await' keyword and an async function, e.g. fetch
 - the await expression returns the resolved value of the promise returned by the async function
 - if the async function returns a rejected promise, then the await expression throws the error
+
+--------- Event Propagation ----------
+
+- most events in JavaScript have three phases
+    - capturing phase
+    - target phase
+    - bubbling phase
+- events propagate during the capturing and bubbling phases
+
+Capturing phase
+- when an event occurs, it originates at the top of the DOM tree, the document root element
+- then the event travels down to the element on which the event occurred (the target element)
+- as the event goes down, it passes through each ancestor of the target element
+
+Target phase
+- the target phase starts when the event reaches the target element
+- any event handler available for the target element will get called
+
+Bubbling phase
+- during the bubbling phase, the event starts going back up from the target element to the document root
+- the event passes through each ancestor element of the target
+- bubbling stops when the event reaches the top of the DOM tree, the document root
+
+Event delegation
+- event delegation is an event-handling technique that takes advantage of event bubbling
+- instead of adding an event listener to each element, the event listener is added to the elements' common parent
+- it involves delegating event-listening to a common parent of some elements
