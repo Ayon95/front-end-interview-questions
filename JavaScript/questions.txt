@@ -186,14 +186,26 @@ Capturing phase
 
 Target phase
 - the target phase starts when the event reaches the target element
-- any event handler available for the target element will get called
+- any event handler registered for this phase will get called
+    - when you add an event listener to the target element
 
 Bubbling phase
 - during the bubbling phase, the event starts going back up from the target element to the document root
 - the event passes through each ancestor element of the target
+    - the event is triggered for each ancestor element of the target and checks if an event handler is available
 - bubbling stops when the event reaches the top of the DOM tree, the document root
+- any event handler registered for this phase will get called
+    - when you add an event listener to an ancestor of the target element
 
 Event delegation
 - event delegation is an event-handling technique that takes advantage of event bubbling
 - instead of adding an event listener to each element, the event listener is added to the elements' common parent
+    - this saves a lot of memory
+    - instead of adding 100 event listeners to 100 elements, you just add 1 event listener to their parent
 - it involves delegating event-listening to a common parent of some elements
+- it allows you to call an event handler when an event occurs on any child of a parent element
+    - the event gets captured by the target element
+    - then the event bubbles up, and once it reaches the parent element, the registered event handler gets called
+    - inside the event handler, you can perform a check to determine if the target element is the one that you are concerned with
+    - if so, then you perform some logic, otherwise, the event handler simply returns without doing anything
+
