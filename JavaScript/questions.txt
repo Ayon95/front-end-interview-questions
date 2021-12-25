@@ -14,20 +14,22 @@ Non-primitive data type
 ----------- let, const, and var variables -----------
 
 var variable
-- var variables are function-scoped
-- their declarations are hoisted and are initialized with a value of undefined
-- you can reassign var variables
+- var variables are global-scoped or function-scoped
+- they are hoisted and are initialized with a default value of undefined
+- you can re-declare or reassign var variables
 
 let variable
 - let variables are block-scoped
 - you cannot use let variables before they are initialized
+    - their declarations are hoisted but they are not initialized with any default value
     - a ReferenceError will be thrown
-- you can reassign let variables
+- you can only reassign let variables
 
 const variable
 - block-scoped
 - you cannot use const variables before they are initialized
-- you cannot reassign a const variable
+    - their declarations are hoisted but they are not initialized with any default value
+- you cannot re-declare or reassign a const variable
 
 --------- What is hoisting? ---------
 
