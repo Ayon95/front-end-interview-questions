@@ -11,6 +11,24 @@ Primitive data types
 Non-primitive data type
 - Object (any data type that is not primitive is of Object type)
 
+----------- let, const, and var variables -----------
+
+var variable
+- var variables are function-scoped
+- their declarations are hoisted and are initialized with a value of undefined
+- you can reassign var variables
+
+let variable
+- let variables are block-scoped
+- you cannot use let variables before they are initialized
+    - a ReferenceError will be thrown
+- you can reassign let variables
+
+const variable
+- block-scoped
+- you cannot use const variables before they are initialized
+- you cannot reassign a const variable
+
 --------- What is hoisting? ---------
 
 - hoisting is the process by which var variables, class declarations, and function declarations
