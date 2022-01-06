@@ -208,14 +208,25 @@ e.g. a p element has a font-size of 150%; its parent has a font-size of 16px; th
 - stacking contexts determine in which order html elements are placed on the z-axis (pointing toward the user)
 - html elements in the layer at the top of the stack remain on top of the elements in the layers below
 
+Root stacking context
+- the root stacking context is created by the root element (html) of the document
+- all elements in the body are at least part of the root stacking context
+
+Parent and child stacking contexts
+- a parent stacking context can have multiple child stacking contexts
+- The z-index values of child stacking contexts only have meaning within the parent stacking context
+
 Stacking order
 - the order in which elements are positioned on the z-axis
+- the stacking context that is higher in the stacking order gets rendered on top of the one that is lower
 
 z-index
 - sets the z-order (position on the z-axis) of a positioned element and its descendants or flex items or grid items
 - for z-index to have any effect, the element needs to be a positioned element
 - creates a new stacking context
 - default value is auto (z-index of 0)
+- z-index values are scoped to a particular stacking context
+    - they are compared only within the same stacking context
 
 Default stacking order
 - default stacking order is used when elements are not positioned or they don't have a z-index value other than 0
@@ -226,4 +237,14 @@ Stacking order of positioned elements with or without custom z-index
     - note that the stacking order of positioned elements within themselves depends on their DOM order
 - positioned elements with higher z-index values are stacked on top of those with lower z-index values
 - positioned elements with a negative z-index value will be rendered behind any non-positioned element
+
+Ways of forming a new stacking context
+- When an element is the root element of a document (the <html> element)
+- When an element has a position value other than static and a z-index value other than auto
+    - note that when position is set to 'fixed' or 'sticky', no explicit z-index value is required
+- When an element has an opacity value less than 1
+- when a flex item or a grid item has a z-index value other than auto
+- Applying a mix-blend-mode other than 'normal'
+- properties like transform, filter, clip-path, perspective, mask, etc. also create stacking contexts if their values are anything other than 'none'
+- Explicitly creating a context with isolation: isolate
 

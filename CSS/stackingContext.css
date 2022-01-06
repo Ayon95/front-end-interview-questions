@@ -1,0 +1,96 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+:root {
+  --opacity: 0.9;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.8rem;
+  padding: 2rem;
+}
+
+code {
+  display: block;
+  margin: 2rem 0;
+}
+
+div {
+  padding: 2rem;
+  border-radius: 4px;
+  opacity: 0.8;
+  border: 1px dashed;
+}
+
+.main-title {
+  text-align: center;
+}
+
+.description {
+  width: 100%;
+  max-width: 60ch;
+  margin: 2rem auto;
+  line-height: 1.5;
+}
+
+.element-A {
+  background-color: rgba(173, 216, 230, var(--opacity));
+  position: relative;
+  z-index: 3;
+}
+
+.element-B {
+  background-color: rgb(255, 236, 184);
+  margin-bottom: 2rem;
+}
+
+.element-C {
+  background-color: rgb(227, 184, 255);
+}
+
+.element-D {
+  background-color: rgba(216, 137, 152, var(--opacity));
+  position: relative;
+  z-index: 2;
+}
+
+.element-E {
+  background-color: rgba(150, 221, 171, var(--opacity));
+  width: 90%;
+  max-width: 70rem;
+  margin: -5rem auto;
+  position: relative;
+  z-index: 1;
+}
+
+.element-F {
+  position: relative;
+  z-index: 4;
+  background-color: #a3c8d6;
+}
+
+.element-G {
+  margin-top: -2rem;
+  position: relative;
+  z-index: 5;
+  background-color: #ded48a;
+}
+
+.element-H {
+  position: absolute;
+  top: 2rem;
+  right: 4rem;
+  height: 90%;
+  z-index: 10;
+  background-color: #b0e396;
+}

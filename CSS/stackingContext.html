@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stacking context</title>
+  </head>
+  <link rel="stylesheet" href="./stackingContext.css" />
+  <body>
+    <h1 class="main-title">Stacking context</h1>
+    <p class="description">
+      Elements A, E, and D create separate stacking contexts since they are
+      positioned elements and they have a z-index value other than auto. Element
+      A's stacking context will be above those of elements E and D, since A has
+      the highest z-index value among them. Even though elements F, G, and H
+      have higher z-index values, they will still be rendered below elements A
+      and D. This is because they are children of E and their z-index values are
+      local to their parent stacking context (stacking context created by E).
+      Their z-index values are compared only within their parent stacking
+      context. Element H is above F and G, and element G is above F.
+    </p>
+    <div class="element-A">
+      <h2>Element A</h2>
+      <code>position: relative;<br />z-index: 3;</code>
+      <div class="element-B"><h3>Element B</h3></div>
+      <div class="element-C"><h3>Element C</h3></div>
+    </div>
+    <div class="element-E">
+      <h2>Element E</h2>
+      <code>position: relative;<br />z-index: 1;</code>
+      <div class="element-F">
+        <h3>Element F</h3>
+        <code>position: relative;<br />z-index: 4;</code>
+      </div>
+      <div class="element-G">
+        <h3>Element G</h3>
+        <code>position: relative;<br />z-index: 5;</code>
+      </div>
+      <div class="element-H">
+        <h3>Element H</h3>
+        <code>position: absolute;<br />z-index: 10;</code>
+      </div>
+    </div>
+    <div class="element-D">
+      <h2>Element D</h2>
+      <code>position: relative;<br />z-index: 2;</code>
+    </div>
+  </body>
+</html>
