@@ -200,3 +200,30 @@ Percentage unit
 e.g. a p element has a padding of 10%; its parent's width is 200px; the p element's padding will be 0.1 * 200 = 20px
 - non-distance % values (font-size, line-height, etc.) of an element are converted in relation to the parent's computed font-size
 e.g. a p element has a font-size of 150%; its parent has a font-size of 16px; the p element's font size will be 1.5 * 16 = 24px
+
+---------- Stacking context ----------
+
+- a stacking context determines whether or not one element is rendered on top of another element
+- stacking contexts are like layers stacked on top of one another
+- stacking contexts determine in which order html elements are placed on the z-axis (pointing toward the user)
+- html elements in the layer at the top of the stack remain on top of the elements in the layers below
+
+Stacking order
+- the order in which elements are positioned on the z-axis
+
+z-index
+- sets the z-order (position on the z-axis) of a positioned element and its descendants or flex items or grid items
+- for z-index to have any effect, the element needs to be a positioned element
+- creates a new stacking context
+- default value is auto (z-index of 0)
+
+Default stacking order
+- default stacking order is used when elements are not positioned or they don't have a z-index value other than 0
+- in that case, elements are rendered according to the order in which they appear in the document (DOM order)
+
+Stacking order of positioned elements with or without custom z-index
+- any positioned elements (and their children) are displayed in front of any non-positioned elements (Flow, Flexbox, Grid)
+    - note that the stacking order of positioned elements within themselves depends on their DOM order
+- positioned elements with higher z-index values are stacked on top of those with lower z-index values
+- positioned elements with a negative z-index value will be rendered behind any non-positioned element
+
