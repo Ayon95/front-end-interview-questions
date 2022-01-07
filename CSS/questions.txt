@@ -84,8 +84,9 @@ Absolute positioning
 Fixed positioning
 - element is removed from the normal flow
 - the element remains fixed in one position
-- element is positioned relative to the initial containing block
+- element is positioned relative to the initial containing block (the viewport)
 unless one of its ancestors has a transform, filter, or perspective set to something other than none
+    - in that case, the ancestor will act as the initial containing block
 
 --------- What is a selector? ----------
 

@@ -54,18 +54,23 @@
   </style>
   <body>
     <h1>Static vs Relative vs Absolute vs Fixed positioning</h1>
-    <p>I have static positioning which is the default or normal positioning.</p>
+    <p>
+      I have static positioning which is the default or normal positioning. I am
+      positioned according to the normal flow.
+    </p>
     <p class="relative">
-      I am relatively positioned. I am offset from my normal position.
+      I am relatively positioned, i.e. positioned relative to my normal
+      position. I am offset from my normal position.
     </p>
     <div>
       <p class="absolute">
         I am absolutely positioned. I am the child of a relatively-positioned
-        element.
+        element. I caused the height of my parent to collapse.
       </p>
     </div>
     <p class="fixed">
-      I have fixed positioning. I am positioned relative to the viewport.
+      I have fixed positioning. I am positioned relative to the initial
+      containing block (the viewport).
     </p>
   </body>
 </html>
