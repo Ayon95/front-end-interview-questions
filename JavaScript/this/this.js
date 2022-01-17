@@ -31,12 +31,13 @@ const arrowFunction = () => {
   console.log(this);
 };
 
+// arrow functions do not bind their own 'this' keyword
 // arrow functions inherit 'this' from their parent scope (lexical this)
-// since this function is getting called in the global scope, there is no scope above the global scope
+// since this function is defined in the global scope, 'this' of global scope will be used
 // so 'this' will be the global object
 arrowFunction();
 
-// the parent scope of brake is the global scope
+// since brake belongs to car which is an object defined in the global scope, 'this' of global scope will be used
 // so 'this' will point to the global object (not car!)
 car.brake();
 
