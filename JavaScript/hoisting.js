@@ -14,8 +14,13 @@ console.log(myName); // Mushfiq
 var myName;
 
 // let and const variables are hoisted but they are not initialized with any default value
-console.log(myClub);
+console.log(myClub); // ReferenceError: cannot access 'myClub' before initialization
 const myClub = "Chelsea";
+console.log(score); // ReferenceError: cannot access 'score' before initialization
+let score;
+console.log(score); // undefined
+score = 0;
+console.log(score); // 0
 
 // class declarations are hoisted; however, they are not initialized with a default value
 const car = new Car("BMW", "silver"); // this will throw a ReferenceError

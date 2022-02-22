@@ -39,10 +39,16 @@ are seemingly moved to the top of the current scope
 - var variables can be used before declaring and assigning them a value but they will be undefined
     - only variable declarations are hoisted; not initializations
 
+- let and const variable declarations are hoisted too but they do not get initialized with a default value of undefined
+- you cannot access a let variable before declaring it
+    - a let variable has a value of undefined before initializing it with a value
+- you cannot access a const variable before declaration and initialization
+
 ------- What is the Temporal Dead Zone (TDZ)? ---------
 
 - it is the region in the scope in which variables are not fully initialized
 - it starts from the beginning of the scope until the line of code where a variable is initialized with a value
+    - note that the TDZ ends for let variables when they are declared
 - accessing let and const variables in the TDZ will result in an error
 - var variables are undefined in the TDZ
 
